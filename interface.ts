@@ -1,10 +1,10 @@
-interface Person {
+interface IPerson {
     name: string;
     age?: number;
     sayHi();
 }
 
-class Female implements Person {
+class Female implements IPerson {
     name: string;
 
     constructor(_name: string) {
@@ -16,7 +16,7 @@ class Female implements Person {
     }
 }
 
-class Male implements Person {
+class Male implements IPerson {
     name: string;
     age: number;
 
@@ -30,7 +30,7 @@ class Male implements Person {
     }
 }
 
-var persons: Person[] = [];
+var persons: IPerson[] = [];
 
 persons.push(
     new Female('Alice'),
