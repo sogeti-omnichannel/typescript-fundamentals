@@ -1,22 +1,56 @@
+In this course we'll look into working with Typescript
+
+Run `npm install typescript -g` to install typescript globally
+
 run `tsc -w -p .` to start watching file
 run `node [file]` in dist folder to view results
 
 # Typescript demo
 ## Class
+First we are going to describe Person as an object holding the name and age properties.
+
 ```typescript
 class Person {
-    name: string;
-    age?: number;
+    firstname: string;
+    lastname: string;
+    age?: number; // not required
 
-    constructor(_name: string, _age: number) {
-        this.name = _name;
+    constructor(_firstname: string, _lastname:string, _age: number) {
+        this.firstname = _firstname;
+        this.lastname = _lastname;
         this.age = _age;
     }
 }
+```
+We can now use the Person class to create a new person.
 
-var person = new Person('Emiel', 29);
+```typescript
+var person = new Person('Emiel', 'Kwakkel', 29);
 
+console.log(`Name: ${person.firstname}.`);
+```
+
+Adding getters and setters are simple to implement. A getter is basically a function that can be accessed as a property. 
+
+Add the following function to the Person class.
+
+```typescript
+get name() {
+    return `${this.firstname} ${this.lastname}`;
+}
+```
+
+This will allow you to access the name as a property.
+```typescript
 console.log(`Name: ${person.name}.`);
+```
+
+Adding a setter is just as simple.
+
+```typescript
+set firstname(firstname: string) {
+    this.firstname = firstname;
+}
 ```
 
 ## Inheritance

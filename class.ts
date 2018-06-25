@@ -1,13 +1,19 @@
 class Person {
-    name: string;
+    firstname: string;
+    lastname: string;
     age?: number;
 
-    constructor(_name: string, _age: number) {
-        this.name = _name;
+    constructor(_firstname: string, _lastname: string, _age: number) {
+        this.firstname = _firstname;
+        this.lastname = _lastname;
         this.age = _age;
+    }
+
+    get fullname() {
+        return `${this.firstname} ${this.lastname}`
     }
 }
 
-var person = new Person('Emiel', 29);
+var person = new Person('Emiel', 'Kwakkel', 29);
 
-console.log(`Name: ${person.name}.`);
+console.log(`Name: ${person.fullname}.`);
